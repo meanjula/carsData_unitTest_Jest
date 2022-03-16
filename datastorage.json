@@ -1,0 +1,60 @@
+[
+	{
+	  "id": 1,
+	  "manufacturer": "WBM",
+	  "type": "XGT",
+	  "accessories": ["radar", "coffee warmer", "hook"],
+	  "price": 250000,
+	  "extras": [{
+		  "name": "winter tires",
+		  "price": 1500
+		},
+		{
+		  "name": "summer tires",
+		  "price": 1000
+		}
+	  ]
+	},
+	{
+	  "id": 2,
+	  "manufacturer": "Baas",
+	  "type": "Coupe",
+	  "accessories": ["clock","speedometer"],
+	  "price": 35000,
+	  "extras": [{
+		  "name": "manual",
+		  "price": 10
+		},
+		{
+		  "name": "warranty",
+		  "price": 200
+		}
+	  ]
+	},
+	{
+	  "id": 3,
+	  "manufacturer": "FauV",
+	  "type": "solo",
+	  "accessories": [],
+	  "price": 15000,
+	  "extras": []
+	},
+	{
+		"id": 4,
+		"manufacturer": "WBM",
+		"type": "hybrid",
+		"accessories": ["seat warmer", "navigator", "hook"],
+		"price": 35000,
+		"extras": [{
+			"name": "winter tires",
+			"price": 1500
+		  },
+		  {
+			"name": "speaker",
+			"price": 1000
+		  }
+		]
+	  }
+	
+  ]
+ 

@@ -15,6 +15,10 @@
   }
 ```
 
+## screenshot of project testing
+
+![unit testing with jest](screenshot_unittest.png)
+
 ## Design test cases in separate .md -file
 
 ## Car data
