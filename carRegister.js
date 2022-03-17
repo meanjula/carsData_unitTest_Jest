@@ -17,4 +17,17 @@ module.exports = class Cars {
       throw new Error("parameter missing");
     }
   }
+
+  getAllIdsByManufacturer(manufacturer) {
+    if (manufacturer) {
+      const idFound = [];
+      for (let car of this.carRegister) {
+        if (car.manufacturer === manufacturer) {
+          idFound.push(car.id);
+        }
+      }
+      return idFound;
+    }
+    return [];
+  }
 };

@@ -77,3 +77,20 @@ describe("Testing method getById", () => {
     expect(() => register.getId());
   });
 });
+
+describe("Testing method getAllIdsByManufacturer", () => {
+  const register = new carRegister(cars);
+  const testValues = [
+    ["WBM", [1, 4]],
+    ["Baas", [2]],
+    ["FauV", [3]],
+    ["x", []],
+    ["", []],
+  ];
+  test.each(testValues)(
+    "getAllIdsByManufacturer(%s) returns %p ",
+    (manufacturer, expected) => {
+      expect(register.getAllIdsByManufacturer(manufacturer)).toEqual(expected);
+    }
+  );
+});
