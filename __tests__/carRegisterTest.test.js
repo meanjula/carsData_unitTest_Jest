@@ -211,3 +211,39 @@ describe("Testing method getAllCarsByTypes", () => {
     expect(() => register.getAllCarsBYTypes());
   });
 });
+
+describe("Testing method getCarAccessories", () => {
+  const register = new carRegister(cars);
+  const testValues = [
+    [1, ["radar", "coffee warmer", "hook"]],
+    [2, ["clock", "speedometer"]],
+    [3, []],
+    [4, ["seat warmer", "navigator", "hook"]],
+  ];
+  test.each(testValues)("getCarAccessories(%s), returns %p", (id, expected) => {
+    expect(register.getCarAccessories(id)).toEqual(expected);
+  });
+  test("if id parameter is string ", () => {
+    expect(register.getCarAccessories("1")).toEqual([]);
+  });
+  test("if id parameter is missing throw exception", () => {
+    expect(() => register.getCarAccessories());
+  });
+});
+
+describe("Testing method getPriceWithoutExtras", () => {
+  const register = new carRegister(cars);
+  const testValues = [
+    [1, 250000],
+    [2, 35000],
+    [3, 15000],
+    [4, 35000],
+  ];
+  test.each(testValues)("getid(%s) returns %p ", (id, expected) => {
+    expect(register.getPriceWithoutExtras(id)).toEqual(expected);
+  });
+
+  test("Test 3: if id is missing throws an exception ", () => {
+    expect(() => register.getPriceWithoutExtras());
+  });
+});

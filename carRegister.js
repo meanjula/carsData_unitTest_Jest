@@ -52,4 +52,24 @@ module.exports = class Cars {
     }
     return carByType;
   }
+
+  getCarAccessories(id) {
+    if (typeof id === "number") {
+      for (let car of this.carRegister) {
+        if (car.id === id) {
+          return car.accessories;
+        }
+      }
+    }
+    return [];
+  }
+
+  getPriceWithoutExtras(id) {
+    for (let car of this.carRegister) {
+      if (car.id === id) {
+        return car.price;
+      }
+    }
+    return "nothing found with given id";
+  }
 };
