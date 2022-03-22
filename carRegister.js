@@ -72,4 +72,41 @@ module.exports = class Cars {
     }
     return "nothing found with given id";
   }
+  getTotalPrice(id) {
+    const totalprice = [];
+    let sum = 0;
+    for (let car of this.carRegister) {
+      if (car.id === id) {
+        for (let extra of car.extras) {
+          sum += extra.price;
+        }
+        return sum + car.price;
+      }
+    }
+    return "nothing found with given id";
+  }
+
+  getPriceOfTheExtras(id) {
+    let sum = 0;
+    for (let car of this.carRegister) {
+      if (car.id === id) {
+        for (let extra of car.extras) {
+          sum += extra.price;
+        }
+        return sum;
+      }
+    }
+    return "nothing found with given id";
+  }
+
+  hasAccessories(id) {
+    for (let car of this.carRegister) {
+      if (car.id === id) {
+        if (car.accessories && car.accessories.length > 0) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 };

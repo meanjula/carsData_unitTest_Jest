@@ -247,3 +247,72 @@ describe("Testing method getPriceWithoutExtras", () => {
     expect(() => register.getPriceWithoutExtras());
   });
 });
+
+describe("Testing method getTotalPrice", () => {
+  const register = new carRegister(cars);
+  const testValues = [
+    [1, 252500],
+    [2, 35210],
+    [3, 15000],
+    [4, 37500],
+  ];
+  test.each(testValues)("getid(%s) returns %p ", (id, expected) => {
+    expect(register.getTotalPrice(id)).toEqual(expected);
+  });
+
+  test("Test 2: if given id  do not match with any car id", () => {
+    expect(register.getTotalPrice(6));
+  });
+});
+describe("Testing method getPriceOfTheExtras", () => {
+  const register = new carRegister(cars);
+  const testValues = [
+    [1, 2500],
+    [2, 210],
+    [3, 0],
+    [4, 2500],
+  ];
+  test.each(testValues)("getid(%s) returns %p ", (id, expected) => {
+    expect(register.getPriceOfTheExtras(id)).toEqual(expected);
+  });
+
+  test("Test 2: if given id  do not match with any car id", () => {
+    expect(register.getPriceOfTheExtras(8));
+  });
+});
+
+describe("Testing method hasOwnProperty", () => {
+  const register = new carRegister(cars);
+  const expected = ["totalPrice: 2500"];
+  const testData = [
+    {
+      id: 3,
+      manufacturer: "FauV",
+      type: "solo",
+      accessories: [],
+      price: 15000,
+      extras: [],
+    },
+    {
+      id: 4,
+      manufacturer: "FauV",
+      type: "solo",
+      price: 15000,
+      extras: [],
+    },
+  ];
+  test("Test 1:if id match and car has accessories", () => {
+    expect(register.hasAccessories(1)).toEqual(true);
+  });
+  test("Test 2: if id match but accessories missing", () => {
+    const register = new carRegister(testData);
+    expect(register.hasAccessories(4)).toEqual(false);
+  });
+  test("Test 2: if id match but accessories is empty", () => {
+    const register = new carRegister(testData);
+    expect(register.hasAccessories(3)).toEqual(false);
+  });
+  test("Test 3: if given id do not match with any car id", () => {
+    expect(register.hasAccessories(8)).toEqual(false);
+  });
+});
