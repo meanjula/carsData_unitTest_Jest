@@ -12,7 +12,7 @@ module.exports = class Cars {
           return car;
         }
       }
-      return [];
+      return null;
     } else {
       throw new Error("parameter missing");
     }
@@ -29,5 +29,27 @@ module.exports = class Cars {
       return idFound;
     }
     return [];
+  }
+
+  getAllCarTypes() {
+    const types = [];
+    for (let car of this.carRegister) {
+      if (car.type && car.type.length > 0) {
+        if (!types.includes(car.type)) {
+          types.push(car.type);
+        }
+      }
+    }
+    return types;
+  }
+  getAllCarsBYTypes(type) {
+    let carByType = [];
+    if (!type) throw new Error("missing parameter");
+    for (let car of this.carRegister) {
+      if (car.type && car.type === type) {
+        carByType.push(car);
+      }
+    }
+    return carByType;
   }
 };
